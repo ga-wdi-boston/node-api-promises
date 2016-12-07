@@ -126,7 +126,7 @@ const readJSON = function (filename) {
   .then(JSON.parse); // what can we surmise about .then?
 
 
-readJSON('./example.jsom')
+readJSON('./example.json')
 .then(callback) // do something with the object
 .catch(console.error);  // handle error conditions
 ```
