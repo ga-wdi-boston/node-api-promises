@@ -96,18 +96,19 @@ const readJSON = function (filename) { // <-- look here
         resolve(res);
       }
     });
-  }).then((res) => {
+  })
+  .then((res) => {
     return JSON.parse(res)
   });
 };
 
 readJSON('./example.json')
-.then((pojo) => {
-  callback(pojo); // do something with the object
-})
-.catch((err) => { // handle error conditions
-  console.error(err);
-});
+  .then((pojo) => {
+    callback(pojo); // do something with the object
+  })
+  .catch((err) => { // handle error conditions
+    console.error(err);
+  });
 ```
 
 That's too verbose. This is better:
@@ -124,11 +125,12 @@ const readJSON = function (filename) {
     });
   })
   .then(JSON.parse); // what can we surmise about .then?
+};
 
 
 readJSON('./example.json')
-.then(callback) // do something with the object
-.catch(console.error);  // handle error conditions
+  .then(callback) // do something with the object
+  .catch(console.error);  // handle error conditions
 ```
 
 ### Code-Along: Promisify `copy-json.js`
